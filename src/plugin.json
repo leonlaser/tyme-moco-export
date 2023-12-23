@@ -1,0 +1,16 @@
+{
+  "id": "moco_exporter",
+  "tymeMinVersion": "2023.1",
+  "version": "1.0",
+  "type": "export",
+  "name": "Moco Exporter",
+  "summary": "Exports your tracked time to Moco",
+  "author": "Leon Dietsch",
+  "authorUrl": "https://leondietsch.de",
+  "icon": "icon.png",
+  "scriptName": "index.js",
+  "scriptMain": "exporter.run()",
+  "scriptPreview": "exporter.generatePreview()",
+  "formName": "form.json",
+  "localizationName": "localization.json"
+}

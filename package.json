@@ -1,0 +1,28 @@
+{
+  "name": "tyme-moco-export",
+  "version": "0.0.1",
+  "description": "Export tracked times to Moco",
+  "repository": "https://github.com/leonlaser/tyme-moco-export",
+  "author": "Leon Dietsch <hallo@leondietsch.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.19.10",
+    "prettier": "^3.1.1",
+    "tail-file": "^1.4.16"
+  },
+  "scripts": {
+    "build": "$npm_package_config_build_cmd --define:DRY_RUN_MODE=false",
+    "prebuild": "rm -rf dist/* && cp src/*.json dist/ && cp src/*.png dist/",
+    "postbuild": "node tool.mjs copy-plugin",
+    "build:dryrun": "$npm_package_config_build_cmd --define:DRY_RUN_MODE=true",
+    "prebuild:dryrun": "npm run prebuild",
+    "postbuild:dryrun": "npm run postbuild",
+    "logs": "node tool.mjs logs"
+  },
+  "config": {
+    "path_tyme": "~/Library/Containers/com.tyme-app.Tyme3-macOS/Data/Library/Application Support",
+    "path_plugin": "plugins/MocoExport",
+    "path_logs": "logs",
+    "build_cmd": "yarn esbuild src/index.ts --platform=neutral --target=esnext --bundle --outfile=dist/index.js"
+  }
+}
